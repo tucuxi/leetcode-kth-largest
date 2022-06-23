@@ -36,6 +36,4 @@ func main() {
 	nums := []int{5, 3, 4, 8, 7, 1, 9, 6, 2}
 	a := findKthLargest(nums, 3)
 	fmt.Printf("nums=%v, third largest element is %d\n", nums, a)
-	b := findKthLargest(nums, 8)
-	fmt.Printf("nums=%v, eighth largest element is %d\n", nums, b)
 }

@@ -5,17 +5,17 @@ import (
 	"fmt"
 )
 
-type MaxHeap []int
+type maxHeap []int
 
-func (h MaxHeap) Len() int           { return len(h) }
-func (h MaxHeap) Less(i, j int) bool { return h[i] > h[j] }
-func (h MaxHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h maxHeap) Len() int           { return len(h) }
+func (h maxHeap) Less(i, j int) bool { return h[i] > h[j] }
+func (h maxHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 
-func (h *MaxHeap) Push(x any) {
+func (h *maxHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-func (h *MaxHeap) Pop() any {
+func (h *maxHeap) Pop() any {
 	old := *h
 	n := len(old)
 	x := old[n-1]
@@ -24,7 +24,7 @@ func (h *MaxHeap) Pop() any {
 }
 
 func findKthLargest(nums []int, k int) int {
-	h := MaxHeap(nums)
+	h := maxHeap(nums)
 	heap.Init(&h)
 	for i := 1; i < k; i++ {
 		heap.Pop(&h)

@@ -1,9 +1,6 @@
 package main
 
-import (
-	"container/heap"
-	"fmt"
-)
+import "container/heap"
 
 type maxHeap []int
 
@@ -26,14 +23,9 @@ func (h *maxHeap) Pop() any {
 func findKthLargest(nums []int, k int) int {
 	h := maxHeap(nums)
 	heap.Init(&h)
-	for i := 1; i < k; i++ {
-		heap.Pop(&h)
+	var t any
+	for i := 0; i < k; i++ {
+		t = heap.Pop(&h)
 	}
-	return heap.Pop(&h).(int)
-}
-
-func main() {
-	nums := []int{5, 3, 4, 8, 7, 1, 9, 6, 2}
-	a := findKthLargest(nums, 3)
-	fmt.Printf("nums=%v, third largest element is %d\n", nums, a)
+	return t.(int)
 }
